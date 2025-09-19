@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pac-Man JS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: black; font-family: sans-serif; color: white; overflow: hidden; }
+    canvas { display: block; margin: 0 auto; background: black; }
+
+    #startScreen, #gameOverScreen, #winScreen {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #scoreLives {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 5; /* garante que fica acima do canvas */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TELA INICIAL -->
+  <div id="startScreen">
+    <h1>Pac-Man JS</h1>
+    <button id="startBtn">Começar</button>
+  </div>
+
+  <!-- PONTUAÇÃO E VIDAS -->
+  <div id="scoreLives">
+    <div>Pontuação: <span id="scoreEl">0</span></div>
+    <div>Vidas: <span id="livesEl">3</span></div>
+  </div>
+
+  <!-- CANVAS -->
+  <canvas></canvas>
+
+  <!-- GAME OVER -->
+  <div id="gameOverScreen" style="display:none;">
+    <h1>Game Over</h1>
+    <button id="restartBtn">Reiniciar</button>
+  </div>
+
+  <!-- VITÓRIA -->
+  <div id="winScreen" style="display:none;">
+    <h1>Você Venceu!</h1>
+    <button id="restartBtnWin">Jogar Novamente</button>
+  </div>
+
+  <!-- SCRIPT PRINCIPAL -->
+  <script src="index.js"></script>
+</body>
+</html>
